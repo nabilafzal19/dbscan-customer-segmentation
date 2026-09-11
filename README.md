@@ -157,6 +157,30 @@ DBSCAN represents noise using:
 
 ---
 
+## DBSCAN Hyperparameter Visualization
+
+The following visualizations compare different `eps` values while keeping `min_samples = 8`.
+
+### eps = 0.50, min_samples = 8
+
+![DBSCAN eps 0.50](images/dbscan_eps_0.50_min_samples_8.png)
+
+At `eps = 0.50`, DBSCAN identifies relatively dense groups but classifies a large number of customers as noise.
+
+### eps = 0.60, min_samples = 8
+
+![DBSCAN eps 0.60](images/dbscan_eps_0.60_min_samples_8.png)
+
+At `eps = 0.60`, fewer customers are classified as noise, but several previously distinct customer groups begin to merge.
+
+### Final Configuration
+
+After evaluating multiple `eps` and `min_samples` combinations using silhouette score, noise percentage, cluster structure, visualization, and business usefulness, the final configuration selected for this project was:
+
+```text
+eps = 0.55
+min_samples = 8
+
 # Hyperparameter Selection
 
 A k-distance graph was used to help investigate appropriate `eps` values.
